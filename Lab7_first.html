@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime or Composite</title>
+    <style>
+        body {
+            background-color: rgb(212, 231, 186);
+            color: white;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            border: 4px solid rgb(95, 92, 92);
+            margin: 34px 270px;
+            background-color: #8cb0d0;
+        }
+
+        p {
+            font-size: 25px;
+        }
+
+        h1 {
+            color: rgb(228, 47, 47);
+        }
+
+        strong {
+            color: rgba(44, 39, 39, 0.76);
+        }
+
+        em {
+            color: rgba(0, 0, 255, 0.582);
+        }
+
+        span {
+            color: brown;
+        }
+
+        #result {
+            border: 2px solid black;
+            border-radius: 12px;
+            padding: 50px 40px;
+            color: #d03535;
+
+        }
+
+        button {
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 12px 26px;
+            background-color: rgb(70, 7, 245);
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: rgb(221, 188, 126);
+        }
+
+        .container input {
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 18px 30px;
+            font-weight: bold;
+            font-size: 28px;
+            padding-left: 30px;
+            text-align: center;
+            margin-top: 15px;
+            background-color: rgb(204, 233, 223);
+        }
+
+        .container input:hover {
+            background-color: rgb(202, 199, 199);
+        }
+
+        @media (max-width:1000px){
+            h1{text-align: center;
+                font-size: 2rem;
+            }
+            p{
+                text-align: center;
+            }
+            .container input{
+                padding: 10px 10px;
+                font-size: 1.3rem;
+                padding-left: 0px;
+                margin-top: 10px;
+                border-radius: 8px;
+                margin: 10px 60px;
+            }
+            .container{
+                margin: auto;
+                width: 80%;
+                height: 100%;
+            }
+            #result{
+                border-radius: 8px;
+                margin: 10px 20px;
+                padding: 30px 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Prime OR Composite</h1>
+        <p> <strong>Prime Number:</strong> A prime number is a number which has exactly two factors i.e. ‘1’ and the
+            number itself. <em>example: 2,3,17 etc.</em></p>
+        <p><strong>Composite Number:</strong> A composite number has more than two factors, which means apart from
+            getting divided by 1 and the number itself, it can also be divided by at least one positive integer.
+            <em>example: 8,16,24 etc.</em></p>
+        <span> Note: 1 is neither prime nor a composite number.</span>
+
+        <input type="text" id="num"> <br>
+        <button onclick="prime()">Check</button>
+        <h2 id="result">Answer would be Displayed here</h2>
+    </div>
+
+</body>
+
+</html>
+<script>
+    function prime() {
+        var number;
+        let flag = 0;
+        number = Number(document.getElementById("num").value);
+        if (number) {
+            if (number == 1) {
+                document.getElementById("result").innerHTML = `${number} is netiher a Prime nor Composite number`;
+                return
+            }
+            for (let i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    document.getElementById("result").innerHTML = `${number} is a Composite number`;
+                    flag = 1;
+                }
+            }
+            if (flag == 0) {
+                document.getElementById("result").innerHTML = `${number} is a Prime number`;
+            }
+        }
+        else {
+            document.getElementById("result").innerHTML = `Enter a valid number`;
+        }
+    }
+</script>
